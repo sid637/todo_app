@@ -1,0 +1,23 @@
+{
+  "name": "todo_app",
+  "version": "1.0.0",
+  "description": "a basic todo app",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sid637/todo_app.git"
+  },
+  "author": "siddharth sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sid637/todo_app/issues"
+  },
+  "homepage": "https://github.com/sid637/todo_app#readme"
+}
