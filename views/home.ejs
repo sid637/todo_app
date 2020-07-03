@@ -1,8 +1,85 @@
 <html>
     <head>
-        <title>Todo App</title>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="/css/home.css">
+        <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
     </head>
     <body>
-        <h1>Todo Home page</h1>
+        
+        <div id="container">
+
+            <div id="page">
+
+
+                
+                <form action="/create-task" method="POST" id="main">
+
+                <div id="description">
+                    <p>description</p>
+                    <input type="text" name="task" placeholder="what do you need to do" required>
+                </div>
+
+                <div id="description-details">
+                    <div id="category">
+                        <p>category</p>
+                        <select name="category" id="">
+                            <option value="">choose a category</option>
+                        </select>
+                    </div>
+
+                    <div id="due-date">
+                        <p>Due Date</p>
+                       <input type="text" name="due_date" id="datepicker" required>
+                    </div>
+                </div>
+                <div id="buttons">
+                    <button id="add" type="submit" form="main">add</button>
+                    <a href="/delete-task/?"><button id="delete" type="submit" form="delete-form">delete</button></a>
+                </div>
+
+            </form>
+
+
+            
+
+            
+
+            <div id="tasks-display">
+                <form action="/delete-task" method="POST" id="delete-form">
+                <ul>
+                    <% for(let i of tasks_list) { %>
+                        <li class="task">
+                            <input type="checkbox" name="task" value="<%= i.id %>"  >
+                            <div class="task-details">
+                                <div class="div1">
+                                <p><%= i.task %></p>
+                                <p><%= i.due_date %></p>
+                                </div>
+                                <div id="div2">
+                                    <div id="button">
+                                        <%= i.category %>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <% } %>
+                </ul>
+
+            </form>
+            </div>
+
+            </div>
+
+        </div>
+
+       
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="/js/home.js"></script>
+        <script>
+            $( "#datepicker" ).datepicker();
+            </script>
     </body>
 </html>
