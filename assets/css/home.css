@@ -1,3 +1,7 @@
+ /* all styles  */
+ 
+
+ /* body */
  body{
     display: flex;
     flex-direction: column;
@@ -9,7 +13,7 @@
 }
 
 
-
+/* main heading */
 
 #heading{
    font-size: 2rem;
@@ -28,6 +32,12 @@
     box-shadow: 2px 0px 2px 2px #ffc600;;
 }
 
+
+/* heading part completes here */
+
+
+/* mian container in which our app is present  */
+
 #container{
     height: max-content;
     width: 100vh;
@@ -37,6 +47,8 @@
     inset 0px 0px 2px 2px  #ffc600;
 } 
 
+
+/* description part */
 #description-details{
     display: flex;
     justify-content: space-between;
@@ -44,13 +56,14 @@
 
 
 
-
+/* buttons div which contain add and delete task buttons  */
 #buttons{
     margin-top: 20px;
     display: flex;
     justify-content: space-around;
 }
 
+/* style for add and delete button tag */
 button{
     border: none;
     background-color: hsla(60,50%,3%,1);
@@ -66,10 +79,16 @@ button{
     font-size: 1.1rem;
 }
 
+button:hover{
+    background-color: #ffc600;
+    color:  hsla(60,50%,3%,1);
+}
+
+
 span{
     font-size: larger;
 }
-
+/* style for all input and select tags */
 input, select{
     background:transparent;
     color: rgb(15, 14, 10);
@@ -79,12 +98,14 @@ input, select{
     border: none;
 }
 
+/* style for input placeholders */
 input::placeholder{
     font-family: monospace;
     color:gray;
     text-transform: capitalize;
 }
 
+/* this class style is for descriprion category and duedate part */
 .display{
     display: flex;
     flex-direction: column;
@@ -93,7 +114,7 @@ input::placeholder{
     margin-left: 20px;
 }
 
-
+/* this style is provided to all span elements with class text  */
 .text{
     text-transform: capitalize;
     padding: 0.5rem;
@@ -102,6 +123,8 @@ input::placeholder{
     font-style: italic;
     z-index: 2;
 }
+
+/* this style is for empty divs ans represent a small yellow square */
 .design>div{
     position: absolute;
     top: 7px;
@@ -113,6 +136,7 @@ input::placeholder{
     
 }
 
+/* keyframe for animations */
 @keyframes rotate{
     from{
         transform: rotate(0deg);
@@ -121,11 +145,13 @@ input::placeholder{
         transform: rotate(360deg);
     }
 }
+/* provided animation to add and delete task buttons */
 button i{
     padding: 3px 5px;
     animation: rotate 2s ease-in-out infinite ;
 }
 
+/* setting grid display for each list item  for tasks display*/
 #delete-form ul li {
     display:grid;
     justify-content: center;
@@ -134,26 +160,30 @@ button i{
  
 }
 
-
+/* margin for all p tags */
 p{
     margin: 3px;
 }
+
+/* containing tasks description and due date */
 .task-details{
     display: flex;
 }
-.task-details i{
-    animation: none;
-}
 
+/* margin set up each list item */
 li{
     margin-top: 10px;
 }
 
+
+/* this style is for empty div present in list item */
 #div1 div{
     background-color: black;
     transform: rotate(-2deg);
     border-radius: 25% 0px 4px 25%;
 }
+
+/* this style is for empty div present in list item */
 #div1 div p{
     color:  #ffc600;
     font-family: candara;
@@ -161,12 +191,15 @@ li{
     transform: rotate(2deg);
 }
 
+/* design for div2 in list item where we fetched category */
 #div2{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+
+/* this is style for div which looks like a button  and shows category */
 #button{
     background-color: rgb(48, 46, 46);
     width: 40%;
@@ -181,6 +214,7 @@ li{
     font-size: 0.7rem;
     font-weight: bolder;
 }
+
 #button p{
     padding: 3px;
     text-align: center;
