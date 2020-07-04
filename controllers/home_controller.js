@@ -16,7 +16,7 @@ module.exports.home = function(req,res){
 
         // here we render our template engine file
         return res.render('home.ejs', {
-            title: "Todo - App",
+            title: "Harth Todo - App",
             tasks_list: tasks
         });
 
