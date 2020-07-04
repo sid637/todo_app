@@ -1,41 +1,93 @@
 <html>
     <head>
         <title><%= title %></title>
+
+        <!-- this is our main CSS -->
         <link rel="stylesheet" href="/css/home.css">
+
+        <!-- This is jquery css (for styling date-picker) -->
         <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
          rel = "stylesheet">
+
+         <!-- this script is just for font awesome fonts -->
+	    <script src="https://kit.fontawesome.com/c44dda2e6d.js" crossorigin="anonymous"></script>
+    
+        
     </head>
     <body>
+
+        <!-- heading our app -->
+        <div id="heading">
+            <i class="fas fa-clipboard-check"></i>
+           <span>HARTH TO-DO</span>
+
+           <!--  this empty div is to give custom underline -->
+           <div></div>
+
+        </div>
         
+        <!-- Main Container which contains app -->
         <div id="container">
 
             <div id="page">
 
 
-                
-                <form action="/create-task" method="POST" id="main">
+                <!-- This is our form to add task -->
+                <form action="/create-task" method="POST" id="main" autocomplete="off"> 
 
-                <div id="description">
-                    <p>description</p>
-                    <input type="text" name="task" placeholder="what do you need to do" required>
+                    <!-- This div is for main  -->
+                <div id="description" class="design display">
+
+                    <!-- here empty div is for designing -->
+                   <div>
+
+                   </div>
+                    <span class="text">Description</span>
+                    
+                    <!-- this is input our input for description -->
+                    <input type="text" name="task" placeholder="what do you need to do?" maxlength="30" required>
                 </div>
 
-                <div id="description-details">
-                    <div id="category">
-                        <p>category</p>
-                        <select name="category" id="">
-                            <option value="">choose a category</option>
+                <div id="description-details" >
+                    
+                    <div id="category" class="design display">
+
+                        <!-- here empty div is for designing -->
+                        <div>
+                       
+                        </div>
+                        <span class="text">category</span>
+
+                        <!-- this is our select tag for categories -->
+                        <select name="category" required id="">
+                            <option value="No Category" >Choose a Category</option>
+                            <option value="school">SCHOOL</option>
+                            <option value="private">PRIVATE</option>
+                            <option value="medicines">MEDICINES</option>
+                            <option value="cleaning">CLEANING</option>
+                            <option value="grocery">GROCERY</option>
+
                         </select>
                     </div>
 
-                    <div id="due-date">
-                        <p>Due Date</p>
-                       <input type="text" name="due_date" id="datepicker" required>
+
+                    <!-- this our input for datepicker which give by jquery ui -->
+                    <div id="due-date" class="design display">
+                        <div></div>
+                        <span class="text">Due Date</span>
+                       <input type="text" name="due_date" id="datepicker" placeholder="dd/mm/yy" required>
                     </div>
+
                 </div>
+
+                <!-- these are add and delete task buttons -->
                 <div id="buttons">
-                    <button id="add" type="submit" form="main">add</button>
-                    <a href="/delete-task/?"><button id="delete" type="submit" form="delete-form">delete</button></a>
+
+                    <!-- this button submit request of form id="main"  to create task-->
+                    <button id="add" type="submit" form="main"><i class="fas fa-plus"></i> add task</button>
+
+                    <!-- this form submit request of form id="delete-form" to delete task -->
+                    <button id="delete" type="submit" form="delete-form"><i class="fas fa-trash-alt"></i> delete task</button>
                 </div>
 
             </form>
@@ -44,22 +96,41 @@
             
 
             
-
+            <!-- This is the div which displays the tasks in from of list -->
             <div id="tasks-display">
                 <form action="/delete-task" method="POST" id="delete-form">
                 <ul>
+                    <!-- here I used ejs html template -->
+                     
+
                     <% for(let i of tasks_list) { %>
                         <li class="task">
-                            <input type="checkbox" name="task" value="<%= i.id %>"  >
+
+                            <!-- this div is for checkbox -->
+                            <div>                                                     
+                                                                                    <!-- here we fetch i of element from database -->
+                            <input type="checkbox" name="task" id="checkbox" value="<%= i.id %>"  >
+                            </div>
                             <div class="task-details">
-                                <div class="div1">
+                                <i class="fas fa-paperclip"></i>
+                                <div id="div1">
+                                 <div>
+
+                                     <!-- here we fetch task for i'th element from database and = is used as we want to display value -->
                                 <p><%= i.task %></p>
-                                <p><%= i.due_date %></p>
+                                 </div>
+                                 <div>
+                                <p><i class="fas fa-calendar-alt"></i>
+                                    <!-- here we fetch due date from database -->
+                                    <%= i.due_date %></p>
+                                 </div>
                                 </div>
-                                <div id="div2">
-                                    <div id="button">
-                                        <%= i.category %>
-                                    </div>
+                            </div>
+                            <div id="div2">
+                                
+                                <div id="button">
+                                    <!-- here we fetch category -->
+                                    <p><%= i.category %></p>
                                 </div>
                             </div>
                         </li>
@@ -73,13 +144,18 @@
 
         </div>
 
-       
-
+       <!-- these scripts are for jquery  -->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="/js/home.js"></script>
+
+        <!-- This is our main script file -->
+        <script  src="/js/home.js"></script>
+
+        <!-- this script tag is for date-picker -->
         <script>
             $( "#datepicker" ).datepicker();
-            </script>
+        </script>
+
+
     </body>
 </html>
