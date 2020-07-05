@@ -9,11 +9,11 @@ A simple TODO list web APP
 4. Execute npm start.
 5. Open your preferred web browser and go to https://localhost:2000
 
-#Features/Functionalities
+# Features/Functionalities
 1. Adding a Task.
 2. Deleting a Task. (Delete multiple tasks at once).
 3. All the tasks are saved to the database (MongoDB, Mongoose is used for databases).
 
-#Screeshots
+# Screeshots
 
 ![screenshot](https://github.com/sid637/todo_app/blob/master/assets/Screenshot%20(96).png)
