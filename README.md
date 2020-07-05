@@ -16,4 +16,4 @@ A simple TODO list web APP
 
 #Screeshots
 
-![screenshot]
+![screenshot](https://github.com/sid637/todo_app/blob/master/assets/Screenshot%20(96).png)
